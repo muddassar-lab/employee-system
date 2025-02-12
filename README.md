@@ -6,3 +6,5 @@
 - Part - 2 [Setting Up Drizzle & Postgres with tRPC and Next.js App](https://itsrakesh.com/blog/setting-up-drizzle-and-postgres-with-trpc-and-nextjs-app)
 - Part - 3 [Implementing Cookie-Based JWT Authentication in a tRPC Backend](https://itsrakesh.com/blog/implementing-cookie-based-jwt-authentication-in-a-trpc-backend)
 - Part - 4 [Cookie-Based Authentication in Nextjs App Router Application](https://itsrakesh.com/blog/cookie-based-authentication-in-a-nextjs-application)
+- Part - 5 [Email Verification System in Next.js and tRPC with Resend](https://itsrakesh.com/blog/email-verification-system-in-next-js-and-trpc-with-resend)
+- Part - n [Integrating DeepSeek API in NextJs and ExpressJs App](https://itsrakesh.com/blog/integrating-deepseek-api-in-nextjs-and-expressjs-app)
