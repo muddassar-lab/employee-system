@@ -5,6 +5,13 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
+"@drizzle-team/brocli@npm:^0.10.2":
+  version: 0.10.2
+  resolution: "@drizzle-team/brocli@npm:0.10.2"
+  checksum: 10c0/3d8b99d680f0b14fea32b45c59b938b6665e0840cc67f04801b1aa3c6747da3c7d01c00e321645034fa100abdba7e0c20ce07cf46fc2ca769ee4cafd97562484
+  languageName: node
+  linkType: hard
+
 "@esbuild-kit/core-utils@npm:^3.3.2":
   version: 3.3.2
   resolution: "@esbuild-kit/core-utils@npm:3.3.2"
@@ -1302,28 +1309,30 @@ __metadata:
   languageName: node
   linkType: hard
 
-"drizzle-kit@npm:^0.23.0":
-  version: 0.23.0
-  resolution: "drizzle-kit@npm:0.23.0"
+"drizzle-kit@npm:^0.30.4":
+  version: 0.30.4
+  resolution: "drizzle-kit@npm:0.30.4"
   dependencies:
+    "@drizzle-team/brocli": "npm:^0.10.2"
     "@esbuild-kit/esm-loader": "npm:^2.5.5"
     esbuild: "npm:^0.19.7"
     esbuild-register: "npm:^3.5.0"
   bin:
     drizzle-kit: bin.cjs
-  checksum: 10c0/9939eeb29f2aa93b73560a9a7df4ebe487c30bddf7e6f0e6ab0550989f0c6afc150f587bf65a9c8c263dea41737b8ce8dcee09f830d6992fe78909f4d3469b12
+  checksum: 10c0/effbf922bce693de2ab66d1e29be58b27818da7bea83804b2f8f79ceea186242a7d1d789978ca06578a97d54bcd5405253b975cd0a3b64c5b7854c943d58361e
   languageName: node
   linkType: hard
 
-"drizzle-orm@npm:^0.32.1":
-  version: 0.32.1
-  resolution: "drizzle-orm@npm:0.32.1"
+"drizzle-orm@npm:^0.39.3":
+  version: 0.39.3
+  resolution: "drizzle-orm@npm:0.39.3"
   peerDependencies:
     "@aws-sdk/client-rds-data": ">=3"
-    "@cloudflare/workers-types": ">=3"
-    "@electric-sql/pglite": ">=0.1.1"
-    "@libsql/client": "*"
-    "@neondatabase/serverless": ">=0.1"
+    "@cloudflare/workers-types": ">=4"
+    "@electric-sql/pglite": ">=0.2.0"
+    "@libsql/client": ">=0.10.0"
+    "@libsql/client-wasm": ">=0.10.0"
+    "@neondatabase/serverless": ">=0.10.0"
     "@op-engineering/op-sqlite": ">=2"
     "@opentelemetry/api": ^1.4.1
     "@planetscale/database": ">=1"
@@ -1331,19 +1340,17 @@ __metadata:
     "@tidbcloud/serverless": "*"
     "@types/better-sqlite3": "*"
     "@types/pg": "*"
-    "@types/react": ">=18"
     "@types/sql.js": "*"
     "@vercel/postgres": ">=0.8.0"
     "@xata.io/client": "*"
     better-sqlite3: ">=7"
     bun-types: "*"
-    expo-sqlite: ">=13.2.0"
+    expo-sqlite: ">=14.0.0"
     knex: "*"
     kysely: "*"
     mysql2: ">=2"
     pg: ">=8"
     postgres: ">=3"
-    react: ">=18"
     sql.js: ">=1"
     sqlite3: ">=5"
   peerDependenciesMeta:
@@ -1354,6 +1361,8 @@ __metadata:
     "@electric-sql/pglite":
       optional: true
     "@libsql/client":
+      optional: true
+    "@libsql/client-wasm":
       optional: true
     "@neondatabase/serverless":
       optional: true
@@ -1370,8 +1379,6 @@ __metadata:
     "@types/better-sqlite3":
       optional: true
     "@types/pg":
-      optional: true
-    "@types/react":
       optional: true
     "@types/sql.js":
       optional: true
@@ -1397,13 +1404,11 @@ __metadata:
       optional: true
     prisma:
       optional: true
-    react:
-      optional: true
     sql.js:
       optional: true
     sqlite3:
       optional: true
-  checksum: 10c0/c756e014a3b77707f93c49c51d2d8a7fb034fccc1da737784bc13b15c78fa708ef27678089217e050738566b39d340fc0d106ae8f4ce3f54a5fb28758d705f14
+  checksum: 10c0/0b2982e03079d7868d23ffca4a95635fc49274691cbb7e7275f9e8ab580ad617d9abbf67ea052ee7304fa97cc6b063951aa16efe6946f61ee47a4c26931b2f3d
   languageName: node
   linkType: hard
 
@@ -3300,8 +3305,8 @@ __metadata:
     cors: "npm:^2.8.5"
     cross-env: "npm:^7.0.3"
     dotenv: "npm:^16.4.5"
-    drizzle-kit: "npm:^0.23.0"
-    drizzle-orm: "npm:^0.32.1"
+    drizzle-kit: "npm:^0.30.4"
+    drizzle-orm: "npm:^0.39.3"
     drizzle-zod: "npm:^0.5.1"
     express: "npm:^4.19.2"
     ioredis: "npm:^5.4.2"

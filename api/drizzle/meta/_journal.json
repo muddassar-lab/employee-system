@@ -8,6 +8,13 @@
       "when": 1725615780851,
       "tag": "0000_true_junta",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1739735279757,
+      "tag": "0001_mighty_tigra",
+      "breakpoints": true
     }
   ]
 }

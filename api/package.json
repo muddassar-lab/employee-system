@@ -12,7 +12,7 @@
     "cookies": "^0.9.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
-    "drizzle-orm": "^0.32.1",
+    "drizzle-orm": "^0.39.3",
     "drizzle-zod": "^0.5.1",
     "express": "^4.19.2",
     "ioredis": "^5.4.2",
@@ -34,12 +34,15 @@
     "@types/node": "^20.14.10",
     "@types/pg": "^8.11.6",
     "cross-env": "^7.0.3",
-    "drizzle-kit": "^0.23.0",
+    "drizzle-kit": "^0.30.4",
     "nodemon": "^3.1.4"
   },
   "scripts": {
     "build": "NODE_ENV=production tsc",
     "dev": "cross-env NODE_ENV=development nodemon --watch '**/*.ts' --exec node --import tsx/esm src/index.ts",
-    "start": "node --import tsx/esm src/index.ts"
+    "start": "node --import tsx/esm src/index.ts",
+    "db:generate-and-push": "yarn db:generate && yarn db:push",
+    "db:generate": "yarn drizzle-kit generate",
+    "db:push": "yarn drizzle-kit push"
   }
 }
