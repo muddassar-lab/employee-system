@@ -7,7 +7,7 @@ const authRouter = router({
   login: publicProcedure
     .input(insertUserSchema)
     .mutation(({ input, ctx }) =>
-      new AuthController().loginHandler(input, ctx)
+      new AuthController().loginHandler(input, ctx),
     ),
 
   register: publicProcedure
@@ -15,15 +15,15 @@ const authRouter = router({
     .mutation(({ input }) => new AuthController().registerHandler(input)),
 
   refreshAccessToken: publicProcedure.mutation(({ ctx }) =>
-    new AuthController().refreshAccessTokenHandler(ctx)
+    new AuthController().refreshAccessTokenHandler(ctx),
   ),
 
   logout: protectedProcedure.mutation(({ ctx }) =>
-    new AuthController().logoutHandler(ctx)
+    new AuthController().logoutHandler(ctx),
   ),
 
   logoutAll: protectedProcedure.mutation(({ ctx }) =>
-    new AuthController().logoutAllHandler(ctx)
+    new AuthController().logoutAllHandler(ctx),
   ),
 
   verifyOtp: publicProcedure
@@ -31,20 +31,20 @@ const authRouter = router({
       z.object({
         otp: z.string().length(6),
         email: z.string(),
-      })
+      }),
     )
     .mutation(({ input, ctx }) =>
-      new AuthController().verifyOtpHandler(input, ctx)
+      new AuthController().verifyOtpHandler(input, ctx),
     ),
 
   resendOtp: publicProcedure
     .input(
       z.object({
         email: z.string().email(),
-      })
+      }),
     )
     .mutation(({ input }) =>
-      new AuthController().resendOtpHandler(input.email)
+      new AuthController().resendOtpHandler(input.email),
     ),
 });
 

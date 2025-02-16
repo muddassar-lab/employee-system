@@ -55,7 +55,7 @@ export default function Dashboard() {
       transaction.txnType === "Incoming"
         ? acc + transaction.amount
         : acc - transaction.amount,
-    0
+    0,
   );
 
   const totalIncome = transactions

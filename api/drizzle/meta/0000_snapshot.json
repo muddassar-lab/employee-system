@@ -79,10 +79,7 @@
     "public.txnType": {
       "name": "txnType",
       "schema": "public",
-      "values": [
-        "Incoming",
-        "Outgoing"
-      ]
+      "values": ["Incoming", "Outgoing"]
     }
   },
   "schemas": {},

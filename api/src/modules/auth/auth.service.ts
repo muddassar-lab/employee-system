@@ -87,7 +87,7 @@ export default class AuthService {
         `refresh_token:${refreshToken}`,
         user.id,
         "EX",
-        7 * 24 * 60 * 60 // 7 days
+        7 * 24 * 60 * 60, // 7 days
       );
 
       // Store refresh token in redis set to track active sessions
@@ -99,7 +99,7 @@ export default class AuthService {
         `user:${user.id}`,
         JSON.stringify(user),
         "EX",
-        7 * 24 * 60 * 60
+        7 * 24 * 60 * 60,
       ); // 7 days
 
       return {
@@ -251,7 +251,7 @@ export default class AuthService {
         `refresh_token:${refreshToken}`,
         user.id,
         "EX",
-        7 * 24 * 60 * 60 // 7 days
+        7 * 24 * 60 * 60, // 7 days
       );
 
       await redis.sadd(`refresh_tokens:${user.id}`, refreshToken);
@@ -261,7 +261,7 @@ export default class AuthService {
         `user:${user.id}`,
         JSON.stringify(user),
         "EX",
-        7 * 24 * 60 * 60
+        7 * 24 * 60 * 60,
       ); // 7 days
 
       return {

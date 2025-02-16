@@ -14,7 +14,7 @@ app.use(
   cors({
     origin: "http://localhost:3000",
     credentials: true,
-  })
+  }),
 );
 
 app.use("/health", (_, res) => {
@@ -26,12 +26,12 @@ app.use(
   createExpressMiddleware({
     router: appRouter,
     createContext,
-  })
+  }),
 );
 
 app.use(express.json());
 app.post("/ai", authMiddleware, (req, res) =>
-  new AiController().accountant(req, res)
+  new AiController().accountant(req, res),
 );
 
 app.listen(process.env.PORT, () => {

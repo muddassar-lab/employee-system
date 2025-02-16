@@ -17,7 +17,7 @@ declare global {
 export const authMiddleware = async (
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) => {
   try {
     const cookies = new Cookies(req, res);

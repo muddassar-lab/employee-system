@@ -55,7 +55,7 @@ export const config = {
 async function refreshAccessToken(
   request: NextRequest,
   response: NextResponse,
-  refreshToken: string
+  refreshToken: string,
 ) {
   try {
     const client = createTRPCServerClient({

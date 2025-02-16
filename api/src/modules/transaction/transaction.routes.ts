@@ -6,11 +6,11 @@ const transactionRouter = router({
   create: protectedProcedure
     .input(insertTransactionSchema)
     .mutation(({ input, ctx }) =>
-      new TransactionController().createTransactionHandler(input, ctx)
+      new TransactionController().createTransactionHandler(input, ctx),
     ),
 
   getAll: protectedProcedure.query(({ ctx }) =>
-    new TransactionController().getTransactionsHandler(ctx)
+    new TransactionController().getTransactionsHandler(ctx),
   ),
 });
 

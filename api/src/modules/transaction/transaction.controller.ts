@@ -5,7 +5,7 @@ import TransactionService from "./transaction.service";
 export default class TransactionController extends TransactionService {
   async createTransactionHandler(
     data: Omit<typeof transactions.$inferInsert, "userId">,
-    ctx: AuthenticatedContext
+    ctx: AuthenticatedContext,
   ) {
     return await super.createTransaction({
       ...data,
