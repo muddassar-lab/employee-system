@@ -7,6 +7,7 @@ import { users } from "../modules/user/user.schema";
 import { eq } from "drizzle-orm";
 
 declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace Express {
     interface Request {
       user: typeof users.$inferSelect;
@@ -17,7 +18,7 @@ declare global {
 export const authMiddleware = async (
   req: Request,
   res: Response,
-  next: NextFunction,
+  next: NextFunction
 ) => {
   try {
     const cookies = new Cookies(req, res);

@@ -2,13 +2,15 @@
   "name": "employee-management-system",
   "packageManager": "yarn@4.4.1",
   "devDependencies": {
-    "concurrently": "^9.1.2",
-    "prettier": "3.5.1"
+    "concurrently": "^9.1.2"
   },
   "scripts": {
     "dev": "concurrently --kill-others \"yarn dev:web\" \"yarn dev:api\"",
     "dev:web": "cd web && yarn dev",
     "dev:api": "cd api && yarn dev",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\""
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "lint": "concurrently --kill-others \"yarn lint:web\" \"yarn lint:api\"",
+    "lint:web": "cd web && yarn lint",
+    "lint:api": "cd api && yarn lint"  
   }
 }

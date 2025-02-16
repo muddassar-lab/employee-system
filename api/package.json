@@ -26,6 +26,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@eslint/js": "^9.20.0",
     "@types/bcryptjs": "^2",
     "@types/cookies": "^0",
     "@types/cors": "^2.8.17",
@@ -35,7 +36,10 @@
     "@types/pg": "^8.11.6",
     "cross-env": "^7.0.3",
     "drizzle-kit": "^0.30.4",
-    "nodemon": "^3.1.4"
+    "eslint": "^9.20.1",
+    "globals": "^15.15.0",
+    "nodemon": "^3.1.4",
+    "typescript-eslint": "^8.24.0"
   },
   "scripts": {
     "build": "NODE_ENV=production tsc",
@@ -43,6 +47,7 @@
     "start": "node --import tsx/esm src/index.ts",
     "db:generate-and-push": "yarn db:generate && yarn db:push",
     "db:generate": "yarn drizzle-kit generate",
-    "db:push": "yarn drizzle-kit push"
+    "db:push": "yarn drizzle-kit push",
+    "lint": "eslint src --fix"
   }
 }

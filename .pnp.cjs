@@ -27,8 +27,7 @@ const RAW_RUNTIME_STATE =
       [null, {\
         "packageLocation": "./",\
         "packageDependencies": [\
-          ["concurrently", "npm:9.1.2"],\
-          ["prettier", "npm:3.5.1"]\
+          ["concurrently", "npm:9.1.2"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -124,8 +123,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./",\
         "packageDependencies": [\
           ["employee-management-system", "workspace:."],\
-          ["concurrently", "npm:9.1.2"],\
-          ["prettier", "npm:3.5.1"]\
+          ["concurrently", "npm:9.1.2"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -171,15 +169,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../AppData/Local/Yarn/Berry/cache/lodash-npm-4.17.21-6382451519-10c0.zip/node_modules/lodash/",\
         "packageDependencies": [\
           ["lodash", "npm:4.17.21"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["prettier", [\
-      ["npm:3.5.1", {\
-        "packageLocation": "./.yarn/unplugged/prettier-npm-3.5.1-8b3bcecc5a/node_modules/prettier/",\
-        "packageDependencies": [\
-          ["prettier", "npm:3.5.1"]\
         ],\
         "linkType": "HARD"\
       }]\

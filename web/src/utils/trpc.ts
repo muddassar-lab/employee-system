@@ -6,7 +6,7 @@ import {
   loggerLink,
 } from "@trpc/react-query";
 import superjson from "superjson";
-import { AppRouter } from "../../../backend/src/index";
+import { AppRouter } from "../../../api/src/index";
 
 export const trpc = createTRPCReact<AppRouter>();
 
