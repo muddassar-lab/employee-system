@@ -10,7 +10,7 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint', 'react'],
+  plugins: ['@typescript-eslint', 'react', 'unused-imports'],
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
@@ -20,6 +20,8 @@ module.exports = {
   rules: {
     semi: ['error', 'always'],
     quotes: ['error', 'double'],
+    'unused-imports/no-unused-imports': 'error',
+    'no-unused-vars': ['error', { vars: 'all', args: 'after-used', ignoreRestSiblings: false }],
   },
   settings: {
     react: {
