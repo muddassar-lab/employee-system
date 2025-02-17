@@ -2,15 +2,26 @@
   "name": "employee-management-system",
   "packageManager": "yarn@4.4.1",
   "devDependencies": {
-    "concurrently": "^9.1.2"
+    "@typescript-eslint/eslint-plugin": "^8.24.1",
+    "@typescript-eslint/parser": "^8.24.1",
+    "concurrently": "^9.1.2",
+    "eslint": "^8.20.0",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "prettier": "^2.5.1",
+    "typescript": "^5.7.3"
   },
   "scripts": {
+    "install:deps": "concurrently --kill-others \"yarn install\" \"yarn install:web\" \"yarn install:api\" \"yarn install:mobile\"",
+    "install:web": "cd web && yarn install",
+    "install:api": "cd api && yarn install",
+    "install:mobile": "cd mobile && yarn install",
     "dev": "concurrently --kill-others \"yarn dev:web\" \"yarn dev:api\"",
     "dev:web": "cd web && yarn dev",
     "dev:api": "cd api && yarn dev",
+    "quality": "yarn lint && yarn format",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "lint": "concurrently --kill-others \"yarn lint:web\" \"yarn lint:api\"",
-    "lint:web": "cd web && yarn lint",
-    "lint:api": "cd api && yarn lint"  
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
   }
 }
