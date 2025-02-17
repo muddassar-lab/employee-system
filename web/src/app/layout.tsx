@@ -2,9 +2,11 @@ import "@/styles/globals.css";
 import { Inter as FontSans } from "next/font/google";
 
 import { Providers } from "@/lib/providers";
+
 import type { Metadata } from "next";
 
 import { cn } from "@/lib/utils";
+import { trpc } from "@/utils/trpc";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -26,7 +28,7 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable,
+          fontSans.variable
         )}
       >
         <Providers>{children}</Providers>

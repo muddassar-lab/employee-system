@@ -68,7 +68,25 @@ export type AuthenticatedContext = Context & {
  * The tRPC instance used for handling server-side requests.
  */
 const t = initTRPC.context<Context>().create({
-  transformer: SuperJSON,
+  transformer: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    serialize: (data: any) => {
+      return data;
+    },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    deserialize: (data: any) => {
+      if (!data) {
+        return data;
+      }
+
+      const isSuperJson = data.json !== undefined;
+      if (isSuperJson) {
+        return SuperJSON.deserialize(data);
+      } else {
+        return data;
+      }
+    },
+  },
 });
 
 /**
