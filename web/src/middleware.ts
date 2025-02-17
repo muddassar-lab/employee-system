@@ -1,6 +1,6 @@
-import type { NextRequest } from "next/server";
-import { NextResponse } from "next/server";
-import { createTRPCServerClient } from "./utils/trpc";
+import type { NextRequest } from 'next/server'
+import { NextResponse } from 'next/server'
+import { createTRPCServerClient } from './utils/trpc'
 
 /**
  * Middleware function to handle authentication and redirection based on user login status and URL path.
@@ -17,26 +17,26 @@ import { createTRPCServerClient } from "./utils/trpc";
  *    it attempts to refresh the access token.
  */
 export default async function middleware(request: NextRequest) {
-  const response = NextResponse.next();
-  const pathname = request.nextUrl.pathname;
-  const loggedIn = request.cookies.get("logged_in");
-  const refreshToken = request.cookies.get("refreshToken")?.value;
+  const response = NextResponse.next()
+  const pathname = request.nextUrl.pathname
+  const loggedIn = request.cookies.get('logged_in')
+  const refreshToken = request.cookies.get('refreshToken')?.value
 
-  const authUrls = new Set(["/login", "/register"]);
+  const authUrls = new Set(['/login', '/register'])
 
   if (loggedIn && authUrls.has(pathname)) {
-    return NextResponse.redirect(new URL("/", request.url));
+    return NextResponse.redirect(new URL('/', request.url))
   }
 
   if (!refreshToken && !authUrls.has(pathname)) {
-    return NextResponse.redirect(new URL("/login", request.url));
+    return NextResponse.redirect(new URL('/login', request.url))
   }
 
   if (!loggedIn && refreshToken && !authUrls.has(pathname)) {
-    await refreshAccessToken(request, response, refreshToken);
+    await refreshAccessToken(request, response, refreshToken)
   }
 
-  return response;
+  return response
 }
 
 export const config = {
@@ -48,38 +48,38 @@ export const config = {
      * - _next/image (image optimization files)
      * - favicon.ico (favicon file)
      */
-    "/((?!api|_next/static|_next/image|favicon.ico).*)",
-  ],
-};
+    '/((?!api|_next/static|_next/image|favicon.ico).*)'
+  ]
+}
 
 async function refreshAccessToken(
   request: NextRequest,
   response: NextResponse,
-  refreshToken: string,
+  refreshToken: string
 ) {
   try {
     const client = createTRPCServerClient({
-      Cookie: `refreshToken=${refreshToken}`,
-    });
+      Cookie: `refreshToken=${refreshToken}`
+    })
 
-    const { accessToken } = await client.auth.refreshAccessToken.mutate();
+    const { accessToken } = await client.auth.refreshAccessToken.mutate()
 
-    response.cookies.set("accessToken", accessToken, {
+    response.cookies.set('accessToken', accessToken, {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
-      path: "/",
-    });
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      path: '/'
+    })
 
-    response.cookies.set("logged_in", "true", {
+    response.cookies.set('logged_in', 'true', {
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-      sameSite: "strict",
-      path: "/",
-    });
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      path: '/'
+    })
 
-    return NextResponse.next();
+    return NextResponse.next()
   } catch {
-    return NextResponse.redirect(new URL("/login", request.url));
+    return NextResponse.redirect(new URL('/login', request.url))
   }
 }

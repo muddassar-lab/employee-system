@@ -2,39 +2,26 @@
   "name": "employee-management-system",
   "packageManager": "yarn@4.4.1",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.24.1",
+    "@typescript-eslint/parser": "^8.24.1",
     "concurrently": "^9.1.2",
     "eslint": "^8.20.0",
-    "prettier": "^2.5.1"
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "prettier": "^2.5.1",
+    "typescript": "^5.7.3"
   },
   "scripts": {
+    "install:deps": "concurrently --kill-others \"yarn install\" \"yarn install:web\" \"yarn install:api\" \"yarn install:mobile\"",
+    "install:web": "cd web && yarn install",
+    "install:api": "cd api && yarn install",
+    "install:mobile": "cd mobile && yarn install",
     "dev": "concurrently --kill-others \"yarn dev:web\" \"yarn dev:api\"",
     "dev:web": "cd web && yarn dev",
     "dev:api": "cd api && yarn dev",
+    "quality": "yarn lint && yarn format",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "lint:web": "cd web && yarn lint",
-    "lint:api": "cd api && yarn lint",
-    "lint:mobile": "cd mobile && yarn lint"
-  },
-  "eslintConfig": {
-    "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:@typescript-eslint/recommended"],
-    "parser": "@typescript-eslint/parser",
-    "plugins": ["@typescript-eslint", "react"],
-    "env": {
-      "browser": true,
-      "node": true,
-      "es6": true
-    },
-    "rules": {
-      "semi": ["error", "always"],
-      "quotes": ["error", "double"]
-    }
-  },
-  "prettier": {
-    "semi": true,
-    "singleQuote": false,
-    "printWidth": 80,
-    "tabWidth": 2,
-    "trailingComma": "es5"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
   }
 }

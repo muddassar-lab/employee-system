@@ -1,7 +1,7 @@
-import { TRPCProvider } from "./trpc";
+import { TRPCProvider } from './trpc'
 
 export function Providers({
-  children,
+  children
 }: Readonly<{ children: React.ReactNode }>) {
-  return <TRPCProvider>{children}</TRPCProvider>;
+  return <TRPCProvider>{children}</TRPCProvider>
 }
